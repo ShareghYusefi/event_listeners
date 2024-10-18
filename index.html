@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JS Event</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <h1>JS Events</h1>
@@ -23,24 +28,29 @@
 
     <script>
       // get the element
-      var special = document.getElementById("special");
+      //   var special = document.getElementById("special");
       // add event listener for the click event
-      special.addEventListener(
-        "click",
-        // event handler
-        function () {
-          alert("Special button clicked");
-        }
-      );
-
-      //   jQuery equevalent
-      //   $("#special").on(
+      //   special.addEventListener(
       //     "click",
       //     // event handler
       //     function () {
       //       alert("Special button clicked");
       //     }
       //   );
+
+      $(document).ready(function () {
+        // jQuery equivalent
+        $("#special").on(
+          "click",
+          // event handler
+          function () {
+            alert("Special button clicked");
+            // update the text of the button
+            // this refers to the element that triggered the event
+            $(this).text("Clicked");
+          }
+        );
+      });
 
       var username = document.getElementById("username");
       username.addEventListener("keypress", function (event) {
