@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Event</title>
+  </head>
+  <body>
+    <h1>JS Events</h1>
+    <p>An event is assigned an event handler(a function).</p>
+    <button onclick="alert('click event triggered')">Click Me!</button>
+    <button ondblclick="alert('double click event triggered')">
+      Double Click Me!
+    </button>
+    <button onmouseover="alert('Mouse over event triggered')">
+      Mouse over
+    </button>
+
+    <!-- We can add event handler to elements using javascript -->
+    <button id="special">Special Click</button>
+
+    <input type="text" id="username" placeholder="Type something" />
+
+    <script>
+      // get the element
+      var special = document.getElementById("special");
+      // add event listener for the click event
+      special.addEventListener(
+        "click",
+        // event handler
+        function () {
+          alert("Special button clicked");
+        }
+      );
+
+      //   jQuery equevalent
+      //   $("#special").on(
+      //     "click",
+      //     // event handler
+      //     function () {
+      //       alert("Special button clicked");
+      //     }
+      //   );
+
+      var username = document.getElementById("username");
+      username.addEventListener("keypress", function (event) {
+        // we can accept the event object as a parameter to the event handler
+        console.log(event);
+
+        // we can access the event specific properties
+        console.log("Event type: " + event.type);
+        console.log("Key pressed: " + event.key);
+        console.log("Target element: " + event.target);
+      });
+    </script>
+  </body>
+</html>
